@@ -6,4 +6,7 @@ import com.example.demo.Model.Carmodel;
 
 public interface Carrepo extends JpaRepository<Carmodel, Integer> {
 
+	Carmodel findByusername(String username);
+	
+
 }

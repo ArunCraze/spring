@@ -1,26 +1,36 @@
-package com.example.demo.Model;
+package com.example.demo.model;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 
 @Entity
-@Table(name="carinfo")
-public class Carmodel {
+public class cardel {
+	
 	@Id
 	private int id;
 	private String model;
-	private String price;
 	private String fueltype;
 	private String engine;
-	private String seat;
-	private String Transmission;
+	private String transmission;
 	private String cc;
 	private String hp;
 	private String topspeed;
-	private String mileage;
-	private String username;
-	private String password;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn
+	private List<carprice> abc;
+	
+	
+	public List<carprice> getAbc() {
+		return abc;
+	}
+	public void setAbc(List<carprice> abc) {
+		this.abc = abc;
+	}
 	public int getId() {
 		return id;
 	}
@@ -32,12 +42,6 @@ public class Carmodel {
 	}
 	public void setModel(String model) {
 		this.model = model;
-	}
-	public String getPrice() {
-		return price;
-	}
-	public void setPrice(String price) {
-		this.price = price;
 	}
 	public String getFueltype() {
 		return fueltype;
@@ -51,17 +55,11 @@ public class Carmodel {
 	public void setEngine(String engine) {
 		this.engine = engine;
 	}
-	public String getSeat() {
-		return seat;
-	}
-	public void setSeat(String seat) {
-		this.seat = seat;
-	}
 	public String getTransmission() {
-		return Transmission;
+		return transmission;
 	}
 	public void setTransmission(String transmission) {
-		Transmission = transmission;
+		this.transmission = transmission;
 	}
 	public String getCc() {
 		return cc;
@@ -81,23 +79,5 @@ public class Carmodel {
 	public void setTopspeed(String topspeed) {
 		this.topspeed = topspeed;
 	}
-	public String getMileage() {
-		return mileage;
-	}
-	public void setMileage(String mileage) {
-		this.mileage = mileage;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	
+
 }
